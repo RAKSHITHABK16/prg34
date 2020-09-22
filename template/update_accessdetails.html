@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update AccessDetails</title>
+</head>
+<body>
+   <form method="POST">
+        {% csrf_token %}
+        <select name="webpage" id="webpage">
+            {% for webpage in webpages %}
+                {% if webpage.webpage_name == accessdetail.webpage.webpage_name %}
+                <option value="{{webpage}}" selected>{{webpage.name}}</option>
+                {% else %}
+                <option value="{{webpage}}">{{webpage.name}}</option>
+                {% endif %}
+            {% endfor %}
+        <input type="datetime-local" name="datetime" id="datetime" value="{{accessdetail.datetime}}">
+
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

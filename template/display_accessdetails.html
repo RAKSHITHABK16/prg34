@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccessDetails</title>
+</head>
+<body>
+<h2>AccessDetails Are : </h2>
+    <table border="2pt">
+        <tr>
+            <th>AccessDetails_ID</th>
+            <th>AccessDetails_Name</th>
+            <th>AccessDetails_DateTime</th>
+        </tr>
+        {% if accessdetail %}
+        {% for a in accessdetail %}
+        <tr>
+            <td>{{a.id}}</td>
+            <td><a href="{% url 'display_webpage' webid=a.webpage.id %}">{{a.webpage}}</a></td>
+            <td>{{a.datetime}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    
+</body>
+</html>
